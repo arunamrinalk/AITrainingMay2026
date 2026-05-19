@@ -1,0 +1,46 @@
+import array
+import os
+import sys
+import logging
+import asyncio
+
+#in-built modules are modules that are included with the Python standard library and do not require any additional installation.
+#os, sys, logging, asyncio, array are examples of in-built modules in Python.
+#datetime, math, random, re, json, yaml are also examples of in-built modules in Python.
+#http module is an in-built module in Python that provides classes and functions for working with HTTP requests and responses. It allows you to create HTTP servers, handle HTTP requests, and send HTTP responses. 
+# The http module is commonly used for building web applications, APIs, and handling network communication over the HTTP protocol.
+
+#any operations related to the operating system can be performed using the os module.
+#The os module provides a way to interact with the operating system, allowing you to perform tasks such as file and directory manipulation, process management, environment variable access, and more.
+#The os module provides functions for working with files and directories, such as creating, deleting,
+# renaming, and listing files and directories. It also provides functions for working with processes, such as creating new processes, terminating processes, and getting information about running processes.
+#The os module also provides functions for working with environment variables, such as getting and setting environment variables, and for working with the operating system's path, such as joining and splitting paths.
+
+print(os.getcwd()) # get current working directory
+print(os.listdir()) # list files and directories in the current working directory
+print(os.path.join("folder1", "file.txt")) # join two paths together
+print(os.path.exists("file.txt")) # check if a file exists
+print(os.path.isfile("file.txt")) # check if a path is a file   
+
+if(not os.path.exists("testDir")):
+    os.mkdir("testDir") # create a directory if it doesn't exist
+    print("Directory created")
+else:
+    print("Directory already exists")
+    os.rmdir("testDir") # remove a directory if it exists
+    print("Directory removed")
+    
+os.system("echo Hello, World!") # execute a system command
+print(os.getlogin()) # get the username of the current user
+print(os.name) # get the name of the operating system
+print(sys.platform) # get the platform of the operating system
+
+os.environ["MY_ENV_VAR"] = "Hey Aruna!" # set an environment variable
+print(os.environ["MY_ENV_VAR"]) # get the value of an environment variable
+
+if(os.path.exists("file.txt")):
+    os.remove("file.txt") # remove a file if it exists
+    print("File removed")
+else:
+    os.makedirs("file.txt") # create a file if it doesn't exist
+    print("File created")

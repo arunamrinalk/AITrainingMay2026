@@ -1,0 +1,8 @@
+[INFO]This is an info message.
+[ERROR]This is an error message.
+[DEBUG]This is a debug message.
+[INFO]This is another info message.
+[ERROR]This is another error message.
+[DEBUG]This is another debug message.
+This is a message without a log level.
+This is another message without a log level.

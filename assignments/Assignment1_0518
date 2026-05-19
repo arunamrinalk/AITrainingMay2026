@@ -1,0 +1,59 @@
+#case1
+# # file1 -- log  - if condition to check whether the log file has any error messages if yes then filter out the error messages
+# line and store in error_log.txt other messages to be stored in info_log.txt
+#create a file named assignment.log and write some log messages in it.
+assignment_log_file = "./assignments/logfiles/assignment.log"
+#with statement in python is used to ensure that resources are properly managed. 
+# It is commonly used for file handling, where it automatically takes care of closing the file after its block of code is executed, even if an error occurs.
+import os
+import getpass
+
+if(os.path.exists(assignment_log_file)):
+    os.remove(assignment_log_file) # remove the file if it already exists
+with open(assignment_log_file, "x") as log_file:
+    log_file.write("[INFO]This is an info message.\n")
+    log_file.write("[ERROR]This is an error message.\n")
+    log_file.write("[DEBUG]This is a debug message.\n")
+    log_file.write("[INFO]This is another info message.\n")
+    log_file.write("[ERROR]This is another error message.\n")
+    log_file.write("[DEBUG]This is another debug message.\n")
+    log_file.write("This is a message without a log level.\n")  
+    log_file.write("This is another message without a log level.\n")
+# file1.txt -- error_log.txt and info_log.txt
+with open(assignment_log_file, "r") as log_file:
+    error_log_file = "./assignments/logfiles/error_log.log"
+    info_log_file = "./assignments/logfiles/info_log.log"
+    debug_log_file = "./assignments/logfiles/debug_log.log"
+    other_log_file = "./assignments/logfiles/other_log.log"
+    if(os.path.exists(error_log_file)):
+        os.remove(error_log_file) # remove the file if it already exists
+    if(os.path.exists(info_log_file)):
+        os.remove(info_log_file) # remove the file if it already exists
+    if(os.path.exists(debug_log_file)):
+        os.remove(debug_log_file) # remove the file if it already exists
+    if(os.path.exists(other_log_file)):
+        os.remove(other_log_file) # remove the file if it already exists
+    with open(error_log_file, "x") as error_file, open(info_log_file, "x") as info_file, open(debug_log_file, "x") as debug_file, open(other_log_file, "x") as other_file:
+        for line in log_file:
+            if "[ERROR]" in line:
+                error_file.write(line)
+            elif "[INFO]" in line:
+                info_file.write(line)
+            elif "[DEBUG]" in line:
+                debug_file.write(line)
+            else:
+                other_file.write(line)
+
+
+#case 2
+#  username and password as input incase if the username is capital convert to lower 
+
+#  condition validation if the user name is admin  you are allow to login else not allow  
+# when you type the password it should not be visible in the screen
+
+username_input = input("Enter your username: ")
+password_input = getpass.getpass("Enter your password: ")
+if username_input.lower() == "admin" and password_input == "admin123":
+    print("You are allowed to login.")
+else:
+    print("Invalid username or password. You are not allowed to login.")
