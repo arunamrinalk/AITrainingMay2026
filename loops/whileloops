@@ -1,0 +1,80 @@
+import os
+import subprocess
+
+#subprocess.run(["dir"])
+
+#while loop with condition or without condition
+# while loop with condition
+
+# while True:
+#     print("This is an infinite loop.")
+#     break # to exit the loop
+
+# user_list = ["Aruna", "Tom", "Theo"]
+# user_role = ["admin", "user", "guest"]
+# while True: # infinite loop 
+#     user_input = input("Enter a user name (or 'exit' to quit): ")
+#     if user_input in user_list:
+#         print("Welcome, " ,user_input, "!")
+#         break
+#     else:
+#         print("Invalid user name.")
+    
+#     user_role_input = input("Enter your role: ")
+#     if user_role_input == "admin":
+#         print("You have admin privileges.")
+#         break
+#     elif user_role_input == "user":
+#         print("You have user privileges.")
+#         break
+#     elif user_role_input == "guest":
+#         print("You have guest privileges.")
+#         break
+#     else:
+#         print("Invalid role.")
+#         break
+
+# while True:
+#     memory_usage = os.popen("mem")
+#     print(memory_usage.read())
+#     memory_usage = os.popen("free -m").readlines()[1].split()[2] # get the memory usage in MB
+#     #os.popen() is used to execute a command in the shell and read its output.
+#     #differece between os.system() and os.popen() is that os.system() executes a command and returns its exit status, while os.popen() executes a command and returns a file-like object that can be used to read the command's output.
+#     if(int(memory_usage) > 80): # check if memory usage is greater than 80%
+#         print("Memory usage is high:", memory_usage, "MB")
+#         break
+#     else:
+#         print("Memory usage is normal:", memory_usage, "MB")
+#         break
+
+max_retries = 3
+retry_count = 0
+
+# while retry_count < max_retries:
+#     user_input = input("Enter a user name: ")
+#     if user_input == "admin":
+#         print("Welcome, admin!")
+#         break
+#     else:
+#         print("Invalid user name. Please try again.")
+#         retry_count += 1
+
+# if retry_count == max_retries:
+#     print("Maximum retries reached. Account locked.")
+    
+#pass and continue statements in while loop
+#pass statement is used when you want to write a placeholder for a block of code that will be implemented later. It does nothing and is used to avoid syntax errors when a statement is required but you do not want to execute any code.
+#continue statement is used to skip the current iteration of a loop and move to the next iteration. It is used when you want to skip certain conditions or when you want to avoid executing certain code for specific iterations.
+#break statement is used to exit a loop prematurely when a certain condition is met. It is used to stop the execution of a loop when a specific condition is satisfied, allowing the program to continue with the next part of the code after the loop.
+for i in range(10):
+    if i == 5:
+        continue
+    print(i)
+    
+for i in range(10):
+    if i == 5:
+        pass # pass is a placeholder statement that does nothing. It is used when a statement is required syntactically but you do not want any code to be executed.
+    print(i)
+    
+    
+
