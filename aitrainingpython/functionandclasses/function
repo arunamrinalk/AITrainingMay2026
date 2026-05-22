@@ -1,0 +1,46 @@
+#function is a block of code which only runs when it is called. 
+# You can pass data, known as parameters, into a function. 
+# A function can return data as a result.
+# In Python, you can define a function using the def keyword, followed by the function name and parentheses.
+# You can also specify parameters inside the parentheses, which are used to pass data to the function
+
+def func1():
+    print("This is a simple function without parameters.")
+    
+def func2(name):#parameter name is defined in the function definition, which allows you to pass a value when calling the function.
+    print("This is a function with a parameter. Hello,", name, "!")
+
+#parameter is a variable that is defined in the function definition and is used to receive a value when the function is called.
+#argument is the actual value that is passed to the function when it is called, which corresponds to the parameter defined in the function definition.
+func1() # calling the function without parameters
+func2("Alice") # calling the function with a parameter; the argument "Alice" is passed to the parameter name in the function definition, and it will print "Hello, Alice!" when executed. 
+func1() # this will print the function object reference, not execute the function. To execute the function, you need to use parentheses.
+func2("Bob") # this will print the function object reference, not execute the function. To execute the function, you need to use parentheses.
+
+def func3(x:str="Hello", y:str="World") -> str: # this is a function definition with type hints, where x and y are parameters of type str, and the function is expected to return a value of type str.
+    return x + " " + y # this function concatenates the two string parameters x and y with a space in between and returns the resulting string.
+
+result1 = func3() # this will call the function func3 without any arguments, so it will use the default values for x and y, which are "Hello" and "World" respectively. The result will be "Hello World".
+print(result1) # this will print the result of the function call, which is "Hello World".
+result = func3("Hi", "There") # this will call the function func3 with the arguments "Hi" and "There", and the result will be "Hi There".
+print(result) # this will print the result of the function call, which is "Hi There".
+
+
+def func4(*args): # this is a function definition that uses *args, which allows the function to accept a variable number of positional arguments. The *args parameter collects all the positional arguments passed to the function into a tuple.
+    print(args) # this will print the tuple of arguments passed to the function.
+    print(type(args)) # this will print the type of args, which is <class 'tuple'>, indicating that args is a tuple containing all the positional arguments passed to the function.
+    for i in args: # this loop iterates over each argument in the args tuple and prints it.
+        print(i)
+        
+func4("Hello", "World", "This", "is", "a", "test") # this will call the function func4 with multiple arguments, and it will print each argument on a new line.
+
+
+def func5(**kwargs): # this is a function definition that uses **kwargs, which allows the function to accept a variable number of keyword arguments. The **kwargs parameter collects all the keyword arguments passed to the function into a dictionary.
+    print(kwargs) # this will print the dictionary of keyword arguments passed to the function.
+    print(type(kwargs)) # this will print the type of kwargs, which is <class 'dict'>, indicating that kwargs is a dictionary containing all the keyword arguments passed to the function.
+    for key, value in kwargs.items(): # this loop iterates over each key-value pair in the kwargs dictionary and prints them.
+        print(key,":", value)
+
+func5(name="Alice", age=30, city="New York") # this will call the function func5 with keyword arguments, and it will print each key-value pair on a new line.
+
+

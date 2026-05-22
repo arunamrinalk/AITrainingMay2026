@@ -1,0 +1,69 @@
+#try statement in python is used to handle exceptions that may occur during the execution of a block of code. 
+# It allows you to write code that can gracefully handle errors without crashing the program.
+# The try statement consists of a try block, which contains the code that may raise an exception, and one or more except blocks, which specify how to handle specific exceptions if they occur.
+# You can also use an optional else block that will execute if no exceptions are raised, and a finally block that will execute regardless of whether an exception was raised or not.
+
+
+# try:
+#     num1 = int(input("Enter the first number: "))
+#     num2 = int(input("Enter the second number: "))
+#     result = num1 / num2
+# except ValueError:
+#     print("Please enter valid integers.")
+# except ZeroDivisionError:
+#     print("Error: Division by zero is not allowed.")
+# else:
+#     print(f"The result of the division is: {result}")
+# finally:
+#     print("Execution completed.")
+    
+    
+    
+# try:
+#     age = int(input("Enter your age: "))
+#     message = " I am " + age + " years old." # this will raise a TypeError because you cannot concatenate a string and an integer directly.
+# except ValueError:  
+#     print("Please enter a valid integer for age.")
+# except TypeError:   
+#     print("Error: Cannot concatenate string and integer. Please convert age to a string.")
+# finally:
+#     print("I am sorry for the inconvenience. Please try again with a valid input.   Thank you!")
+
+
+
+# try:
+#     file = open("non_existent_file.txt", "r") # this will raise a FileNotFoundError because the file does not exist.
+# except FileNotFoundError:
+#     print("Error: The file you are trying to open does not exist.")
+# else:
+#     print("File opened successfully.")
+# finally:
+#     print("Thank you for using the file handling program. Goodbye!")
+#     if file is not None: # this will check if the file variable is defined and not None before trying to close it, to avoid a NameError if the file was never opened.
+#         file.close() # this will ensure that the file is closed even if an exception occurred during the file opening process.
+
+#throwing an exception manually using raise keyword
+#raise keyword in python is used to manually raise an exception. 
+#It allows you to create and throw an exception at any point in your code, which can be useful for handling specific error conditions or enforcing certain constraints.
+def validate_age(age):
+    if age < 0:
+        raise ValueError("Age cannot be negative.") # this will raise a ValueError with the specified message if the age is negative.
+    elif age < 18:
+        raise ValueError("You must be at least 18 years old to register.") # this will raise a ValueError with the specified message if the age is less than 18.
+    else:
+        print("Age is valid. You can proceed with registration.")
+        
+def get_age_input():
+    try:
+        age = int(input("Enter your age: "))
+        validate_age(age) # this will call the validate_age function with the user input, and it may raise a ValueError if the age is invalid. 
+    except ValueError as ve:
+        print("Error:", ve) # this will catch the ValueError raised by the validate_age function and print the error message to the user.
+    finally:
+        print("Thank you for providing your age. Please try again if you entered an invalid age.")
+        
+        
+get_age_input() # this will call the get_age_input function, which will prompt the user to enter their age and validate it using the validate_age function. If the age is invalid, it will raise a ValueError and print the corresponding error message, but it will always execute the finally block to thank the user for providing their age.
+
+
+#Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser

@@ -1,0 +1,33 @@
+#decorator is a design pattern in Python that allows you to modify the behavior of a function or class method without changing its source code. 
+#A decorator is a higher-order function that takes another function as an argument and returns a new function that can add some functionality before or after the original function is called.
+
+import time
+
+def timer_decorator(func): # this is a decorator function that takes another function func as an argument.
+    def wrapper(*args, **kwargs): # this is the wrapper function that will replace the original function when decorated.It accepts any number of positional and keyword arguments.
+        start_time = time.time() # this records the start time before calling the original function.
+        print("Start time:", start_time) # this prints the start time.
+        result = func(*args, **kwargs) # this calls the original function with the provided arguments and stores the result.
+        end_time = time.time() # this records the end time after the original function has been called.
+        print("End time:", end_time) # this prints the end time.
+        print(f"Execution time: {end_time - start_time} seconds") # this calculates and prints the execution time of the original function.
+        return result # this returns the result of the original function.
+    return wrapper # this returns the wrapper function, which will replace the original function when decorated.
+
+@timer_decorator # this is the syntax for applying the timer_decorator to the function func6. It means that func6 will be wrapped by the timer_decorator, and when func6 is called, it will execute the wrapper function defined in the timer_decorator.
+def func6(list1): # this is a sample function that takes a list of integers as an argument and calculates the sum of all elements in the list.
+    total = sum(list1)
+    return total
+
+@timer_decorator # this is the syntax for applying the timer_decorator to the function func6. It means that func6 will be wrapped by the timer_decorator, and when func6 is called, it will execute the wrapper function defined in the timer_decorator.
+def func6(num:int): # this is a sample function that takes a list of integers as an argument and calculates the sum of all elements in the list.
+    total = 0
+    for i in range(1, num+1):
+        total += i
+    return total
+
+result = func6(10) # this calls the decorated function func6 with the argument 10, which will execute the wrapper function defined in the timer_decorator, and it will print the execution time of func6.
+print("Result:", result) # this will print the result of the function call, which is the sum of numbers from 1 to 10, which is 55.
+
+result1 = func6(1000000) # this calls the decorated function func6 with the argument 1000000, which will execute the wrapper function defined in the timer_decorator, and it will print the execution time of func6.
+print("Result:", result1) # this will print the result of the function call, which is the sum of numbers from 1 to 1000000, which is 500000500000.
